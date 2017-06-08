@@ -1,0 +1,7 @@
+version: '3'
+services:
+  namenode:
+    image: qnib/plain-hdfs-namenode
+    ports:
+      - "8080:8080"
+      - "50070:50070"

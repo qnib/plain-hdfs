@@ -3,5 +3,15 @@ services:
   namenode:
     image: qnib/plain-hdfs-namenode
     ports:
-      - "8080:8080"
       - "50070:50070"
+  datanode:
+    image: qnib/plain-hdfs-datanode
+    ports:
+      - "50075:50075"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 15s
+      restart_policy:
+        condition: on-failure
